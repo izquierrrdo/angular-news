@@ -1,0 +1,9 @@
+<div *ngIf="loading" class="c__loading">Загрузка...</div>
+<div class="recommendations">
+    <div *ngFor="let r of recommendations" class="recommendations__item">
+        <img [src]="r.img" class="recommendations__item__img" alt="" width="450" height="330">
+        <div class="recommendations__item__info">
+            <a class="recommendations__item__info__title" [routerLink]="['/news', r.id]">{{ r.title | titlecase }}</a>
+        </div>
+    </div>
+</div>

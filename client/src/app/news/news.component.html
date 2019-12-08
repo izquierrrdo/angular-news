@@ -1,0 +1,25 @@
+<div class="container">
+
+    <h2 class="c__header">Новости</h2>
+
+    <p *ngIf="error; else newsBlock" class="c__error">{{ error }}</p>
+
+    <ng-template #newsBlock>
+        <div class="news">
+            <div *ngFor="let n of news" class="news__item">
+                <img [src]="n.img" class="news__item__img" alt="" width="450" height="330">
+                <div class="news__item__info">
+                    <a class="news__item__info__title" [routerLink]="['/news', n.id]">{{ n.title | titlecase }}</a>
+                    <div class="news__item__info__block">
+                        <div class="news__item__info__block__date">{{ n.date | date:'dd/MM/yyyy' }}</div>
+                        <div (click)="addLike(n.id)" class="news__item__info__block__likes" [ngClass]="n.liked ? 'news__item__info__block__likes-active':''"><i class="fas fa-heart"></i> {{ n.likes }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </ng-template>
+
+</div>
+
+<div #anchor class="c__loading">Загрузка...</div>

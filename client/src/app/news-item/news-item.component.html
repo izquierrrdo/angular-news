@@ -1,0 +1,24 @@
+<a class="back_link" routerLink=""><i class="far fa-arrow-alt-circle-left"> </i>&nbsp;Все новости...</a>
+<div *ngIf="loading; else post" class="c__loading">Загрузка...</div>
+
+<ng-template #post>
+    <div class="container">
+        <article class="container_block">
+            <div class="post">
+                <h1 class="post__header">{{ newsItem.title }}</h1>
+                <div class="post__date">{{ newsItem.date }}</div>
+                <img [src]="newsItem.img" class="post__img">
+                <div class="post__text">
+                    <p>{{ newsItem.text }}</p>
+                </div>
+                <div class="post__social">
+                    <div (click)="addLike()" class="post__social__likes" [ngClass]="newsItem.liked ? 'post__social__likes-active':''"><i class="fas fa-heart"></i> {{ newsItem.likes }}</div>
+                </div>
+            </div>
+        </article>
+        <article class="container_block">
+            <h2>Рекомендуем</h2>
+            <app-recommendations [id]="id"></app-recommendations>
+        </article>
+    </div>
+</ng-template>

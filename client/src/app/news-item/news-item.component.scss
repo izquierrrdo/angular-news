@@ -1,0 +1,87 @@
+// Small tablets and large smartphones
+$screen-sm-max: 576px;
+
+// Small tablets
+$screen-md-max: 768px;
+
+// Small devices
+@mixin sm {
+  @media (max-width: #{$screen-sm-max}) {
+    @content;
+  }
+}
+
+// Medium devices
+@mixin md {
+  @media (max-width: #{$screen-md-max}) {
+    @content;
+  }
+}
+
+
+
+.post {
+  padding-top: 100px;
+  @include md {
+   padding-top: 70px;
+  }
+  &__header {
+    font-size: 46px;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    @include md {
+      font-size: 28px;
+    }
+  }
+  &__date {
+    font-style: italic;
+    font-weight: 300;
+    color: orangered;
+    font-size: 15px;
+    padding: 10px 0;
+  }
+  &__text {
+    margin-top: 20px;
+    font-size: 20px;
+  }
+  &__social {
+    border-top: 1px solid #aaa;
+    margin-top: 10px;
+    padding-top: 5px;
+    &__likes {
+      cursor: pointer;
+      font-size: 25px;
+      &-active {
+        color: orangered;
+      }
+    }
+
+  }
+}
+
+.c__loading {
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  padding: 70px 0 50px;
+}
+
+.container_block {
+  padding-bottom: 70px;
+}
+
+.back_link {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: antiquewhite;
+  font-size: 25px;
+  font-weight: bold;
+  color: #0a0a0a;
+}
